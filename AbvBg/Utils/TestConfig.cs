@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
+using NUnit.Framework;
 
 namespace AbvBg.Utils
 {
@@ -13,12 +14,14 @@ namespace AbvBg.Utils
 
         public static IConfiguration InitConfiguration()
         {
+            var param = TestContext.Parameters.Get<string>("env", "qa");
+
             var config = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.test.json")
                 .Build()
                 .GetSection("env")
-                .GetSection("qa");
-
+                .GetSection(param);
+            
             return config;
         }
 

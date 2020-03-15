@@ -7,10 +7,14 @@
 
   <ItemGroup>
     <None Remove="appsettings.test.json" />
+    <None Remove="test.runsettings" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="appsettings.test.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="test.runsettings">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

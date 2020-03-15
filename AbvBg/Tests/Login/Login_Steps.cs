@@ -1,4 +1,5 @@
 ﻿using AbvBg.Objects;
+using NUnit.Framework;
 using TechTalk.SpecFlow;
 
 namespace AbvBg.Tests.Login
@@ -27,6 +28,7 @@ namespace AbvBg.Tests.Login
         {
             homePage.Navigate();
             homePage.HandleGdprFrame(driver);
+
         }
 
         [When(@"I enter my '(.*)', '(.*)' and click on the Login button")]

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+
+  <!-- Parameters used by tests at runtime
+  Command line params config: https://github.com/nunit/docs/wiki/Console-Command-Line
+  -->
+  <TestRunParameters>
+    <Parameter name="env" value="qa" />
+  </TestRunParameters>
+
+  <NUnit>
+  </NUnit>
+</RunSettings>

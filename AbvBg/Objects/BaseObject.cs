@@ -79,12 +79,11 @@ namespace AbvBg.Objects
 
                 if (!frameNotDisplayed)
                 {
-                    var bla = driver.SwitchTo().Frame("abv-GDPR-frame").SwitchTo().Frame("cmp-faktor-io");
-
-                    if (IsElementClickable(driver.FindElement(By.Id("acceptAll"))))
+                    driver.SwitchTo().Frame("abv-GDPR-frame").SwitchTo().Frame("cmp-faktor-io");
+                    var acceptButton = driver.FindElement(By.Id("acceptAll"));
+                    if (IsElementClickable(acceptButton))
                     {
-                        IWebElement AgreeWithCookies = driver.FindElement(By.Id("acceptAll"));
-                        AgreeWithCookies.Click();
+                        acceptButton.Click();
                     }
 
                 }
