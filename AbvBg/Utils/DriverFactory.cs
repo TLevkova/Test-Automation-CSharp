@@ -1,7 +1,7 @@
-﻿using NUnit.Framework;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Remote;
 using System;
 using System.IO;
@@ -11,74 +11,80 @@ namespace AbvBg.Utils
 {
     class DriverFactory
     {
-        private static IWebDriver _theWebDriver;
+        private static IWebDriver _webDriver;
+        private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
         public static IWebDriver GetWebDriver()
         {
-            Console.WriteLine("Getting a WebDriver");
-            //string driverType = Properties.Settings.Default.driver;
+            logger.Info("Getting a WebDriver");
             string driverType = TestConfig.Browser;
 
-            if (_theWebDriver == null)
+            if (_webDriver == null)
             {
-                Console.WriteLine("There is no existing driver instance, creating new one:");
+                logger.Info("There is no existing driver instance, creating new one:");
                 switch (driverType.ToLower())
                 {
                     case "chrome":
-                        _theWebDriver = createChromeDriver();
+                        _webDriver = createChromeDriver();
                         break;
                     case "firefox":
-                        _theWebDriver = createFireFoxDriver();
+                        _webDriver = createFireFoxDriver();
                         break;
                     case "ie":
-                        _theWebDriver = createIEDriver();
+                        _webDriver = createIEDriver();
                         break;
                     case "remote":
-                        _theWebDriver = createRemoteDriver();
+                        _webDriver = createRemoteDriver();
                         break;
+                    default:
+                        throw new ArgumentNullException("WebDriver is not set");
                 }
             }
 
-            Console.WriteLine("There is already existing driver instance");
-            return _theWebDriver;
+            logger.Info($"There is already existing driver instance: {_webDriver}");
+            return _webDriver;
         }
 
         private static IWebDriver createChromeDriver()
         {
-            Console.WriteLine("Creating a Chrome driver");
+            logger.Info("Creating a Chrome driver");
             return new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
         }
 
         private static IWebDriver createFireFoxDriver()
         {
+            logger.Info("Creating a Firefox driver");
             return new FirefoxDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
         }
 
         private static IWebDriver createIEDriver()
         {
-            throw new NotImplementedException();
+            logger.Info("Creating an Internet Explorer driver");
+            return new InternetExplorerDriver(Assembly.GetExecutingAssembly().Location);
         }
 
         private static IWebDriver createRemoteDriver()
         {
             string remoteBrowser = TestConfig.RemoteBrowser;
-            string RemoteDriverURL = TestConfig.RemoteDriverHost;
+            string remoteDriverURL = TestConfig.RemoteDriverHost;
 
-            Console.WriteLine("Creating remote web driver of type " + remoteBrowser);
-            Console.WriteLine("Setting remote host: " + RemoteDriverURL);
+            logger.Info($"Creating a remote web driver of type {remoteBrowser}");
+            logger.Info($"Setting remote host: {remoteDriverURL}");
 
             switch (remoteBrowser)
             {
                 case "chrome":
                     var chromeOptions = new ChromeOptions();
-                    return new RemoteWebDriver(new Uri(RemoteDriverURL), chromeOptions);
+                    return new RemoteWebDriver(new Uri(remoteDriverURL), chromeOptions);
                 case "firefox":
-                    /// to be continued:  :)
-                    break;
-                default: throw new NotImplementedException();
+                    var firefoxOptions = new FirefoxOptions();
+                    return new RemoteWebDriver(new Uri(remoteDriverURL), firefoxOptions);
+                case "ie":
+                    var internetExplorerOptions = new InternetExplorerOptions();
+                    return new RemoteWebDriver(new Uri(remoteDriverURL), internetExplorerOptions);
+                default:
+                    throw new ArgumentNullException("Remote WebDriver is not set");
             }
-
-            throw new NotImplementedException();
         }
     }
 }

@@ -9,13 +9,16 @@ namespace AbvBg.Objects
     public abstract class BaseObject
     {
         private IWebDriver _driver;
+        private WebDriverWait _wait;
 
         public BaseObject(IWebDriver driver)
         {
             _driver = driver;
+            _wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(2));
         }
 
         public IWebDriver Driver => _driver;
+        public WebDriverWait Wait => _wait;
 
         public virtual string PagePath { get; }
         public string BaseUrl { get; set; } = TestConfig.BaseUrl;

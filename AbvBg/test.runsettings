@@ -5,6 +5,7 @@
   Command line params config: https://github.com/nunit/docs/wiki/Console-Command-Line
   -->
   <TestRunParameters>
+    <Parameter name="appSettings" value="appsettings.test.json" />
     <Parameter name="env" value="qa" />
   </TestRunParameters>
 

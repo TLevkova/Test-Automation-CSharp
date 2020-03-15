@@ -6,11 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="appsettings.example.json" />
     <None Remove="appsettings.test.json" />
     <None Remove="test.runsettings" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="appsettings.example.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="appsettings.test.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -23,6 +27,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.2" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.2" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+    <PackageReference Include="NLog" Version="4.6.8" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.16.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -31,6 +36,7 @@
     <PackageReference Include="Selenium.Support" Version="3.141.0" />
     <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="80.0.3987.10600" />
+    <PackageReference Include="Selenium.WebDriver.IEDriver64" Version="3.141.59" />
     <PackageReference Include="SpecFlow" Version="3.1.86" />
     <PackageReference Include="SpecFlow.NUnit" Version="3.1.86" />
     <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.1.86" />

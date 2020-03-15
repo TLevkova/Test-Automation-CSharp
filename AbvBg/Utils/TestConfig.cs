@@ -14,10 +14,11 @@ namespace AbvBg.Utils
 
         public static IConfiguration InitConfiguration()
         {
-            var param = TestContext.Parameters.Get<string>("env", "qa");
+            string appSettings = TestContext.Parameters.Get("appSettings", "appsettings.test.json");
+            string param = TestContext.Parameters.Get<string>("env", "qa");
 
             var config = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.test.json")
+                .AddJsonFile(appSettings)
                 .Build()
                 .GetSection("env")
                 .GetSection(param);
