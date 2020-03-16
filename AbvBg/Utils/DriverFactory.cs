@@ -6,13 +6,14 @@ using OpenQA.Selenium.Remote;
 using System;
 using System.IO;
 using System.Reflection;
+using NLog;
 
 namespace AbvBg.Utils
 {
     class DriverFactory
     {
         private static IWebDriver _webDriver;
-        private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         public static IWebDriver GetWebDriver()
         {

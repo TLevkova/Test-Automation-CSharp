@@ -1,5 +1,4 @@
 ﻿using AbvBg.Objects;
-using NUnit.Framework;
 using TechTalk.SpecFlow;
 
 namespace AbvBg.Tests.Login

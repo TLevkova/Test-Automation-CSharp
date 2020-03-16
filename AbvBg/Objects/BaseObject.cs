@@ -19,9 +19,9 @@ namespace AbvBg.Objects
 
         public IWebDriver Driver => _driver;
         public WebDriverWait Wait => _wait;
-
-        public virtual string PagePath { get; }
+        
         public string BaseUrl { get; set; } = TestConfig.BaseUrl;
+        public virtual string PagePath { get; }
         public string Title => Driver.Title;
 
 
