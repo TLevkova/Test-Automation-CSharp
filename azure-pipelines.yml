@@ -22,10 +22,10 @@ steps:
     restoreSolution: '$(solution)'
 
 #- task: DotNetCoreCLI@2
-- script: dotnet test --logger nunit
+- script: dotnet test --logger trx
 
 - task: PublishTestResults@2
   condition: succeededOrFailed()
   inputs:
     testRunner: VSTest
-    testResultsFiles: '**/*.xml'
+    testResultsFiles: '**/*.trx'
