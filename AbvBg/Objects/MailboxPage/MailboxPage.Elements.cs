@@ -15,7 +15,7 @@ namespace AbvBg.Objects
         private IWebElement ReceiverField => Driver.FindElement(By.CssSelector("tr:nth-child(2) td.clientField div input"));
         private IWebElement SubjectField => Driver.FindElement(By.ClassName("gwt-TextBox"));
         private IWebElement SendMessageButton => Driver.FindElement(By.CssSelector(".sendMenuContent .abv-button"));
-        private string ConfirmationMessage => Driver.FindElement(By.ClassName("abv-h2")).Text;
+        private string ConfirmationMessage => Driver.FindElement(By.CssSelector("#middlePagePanel > :first-child .abv-h2")).Text;
 
     }
 }
