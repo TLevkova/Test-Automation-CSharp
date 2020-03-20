@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" duration="37.724000000000004" testcasecount="4" total="4" passed="4" failed="0" inconclusive="0" skipped="0" result="Passed" start-time="2020-03-20T 01:04:08Z" end-time="2020-03-20T 01:04:56Z">
+  <test-suite type="Assembly" name="AbvBg.dll" fullname="C:\Users\remem\Documents\RemoteProjects\SpecFlow\SpecFlow_TestAutomation\AbvBg\bin\Debug\netcoreapp2.2\AbvBg.dll" total="4" passed="4" failed="0" inconclusive="0" skipped="0" result="Passed" duration="37.724">
+    <test-suite type="TestSuite" name="AbvBg" fullname="AbvBg" total="4" passed="4" failed="0" inconclusive="0" skipped="0" result="Passed" duration="37.724">
+      <test-suite type="TestSuite" name="Tests" fullname="AbvBg.Tests" total="4" passed="4" failed="0" inconclusive="0" skipped="0" result="Passed" duration="37.724">
+        <test-suite type="TestSuite" name="Login" fullname="AbvBg.Tests.Login" total="3" passed="3" failed="0" inconclusive="0" skipped="0" result="Passed" duration="29.984">
+          <test-suite type="TestFixture" name="LoginFeature" fullname="AbvBg.Tests.Login.LoginFeature" total="3" passed="3" failed="0" inconclusive="0" skipped="0" result="Passed" duration="29.984">
+            <test-case name="LoginWithRegisteredUser(&quot;davidspecflowqhtest1@abv.bg&quot;,&quot;specflow1&quot;,&quot;Specflow User1&quot;,null)" fullname="AbvBg.Tests.Login.LoginFeature.LoginWithRegisteredUser" methodname="LoginWithRegisteredUser" classname="AbvBg.Tests.Login.LoginFeature" result="Passed" duration="17.527" asserts="0">
+              <properties>
+                <property name="Category" value="positive" />
+              </properties>
+              <output><![CDATA[Given I am on the Home page
+-> done: Login_Steps.GivenIAmOnTheHomePage() (16.0s)
+When I enter my 'davidspecflowqhtest1@abv.bg', 'specflow1' and click on the Login button
+-> done: Login_Steps.WhenIEnterMyCredentialsAndClickOnLoginButton("davidspecflowqhte...", "specflow1") (0.8s)
+Then I should be logged in successfully and see greeting message with my 'Specflow User1'
+-> done: Login_Steps.ThenIShouldBeLoggedInSuccessfullyAndSeeGreetingMessage("Specflow User1") (0.6s)
+
+]]></output>
+            </test-case>
+            <test-case name="LoginWithRegisteredUser(&quot;davidspecflowqhtest2@abv.bg&quot;,&quot;specflow2&quot;,&quot;Specflow User2&quot;,null)" fullname="AbvBg.Tests.Login.LoginFeature.LoginWithRegisteredUser" methodname="LoginWithRegisteredUser" classname="AbvBg.Tests.Login.LoginFeature" result="Passed" duration="6.562" asserts="0">
+              <properties>
+                <property name="Category" value="positive" />
+              </properties>
+              <output><![CDATA[Given I am on the Home page
+-> done: Login_Steps.GivenIAmOnTheHomePage() (5.3s)
+When I enter my 'davidspecflowqhtest2@abv.bg', 'specflow2' and click on the Login button
+-> done: Login_Steps.WhenIEnterMyCredentialsAndClickOnLoginButton("davidspecflowqhte...", "specflow2") (0.6s)
+Then I should be logged in successfully and see greeting message with my 'Specflow User2'
+-> done: Login_Steps.ThenIShouldBeLoggedInSuccessfullyAndSeeGreetingMessage("Specflow User2") (0.5s)
+
+]]></output>
+            </test-case>
+            <test-case name="TryToLoginWithUnregisteredUser" fullname="AbvBg.Tests.Login.LoginFeature.TryToLoginWithUnregisteredUser" methodname="TryToLoginWithUnregisteredUser" classname="AbvBg.Tests.Login.LoginFeature" result="Passed" duration="5.895" asserts="0">
+              <properties>
+                <property name="Category" value="negative" />
+              </properties>
+              <output><![CDATA[Given I am on the Home page
+-> done: Login_Steps.GivenIAmOnTheHomePage() (5.3s)
+When I enter my 'NonExistentUser', 'NonExistentPassword' and click on the Login button
+-> done: Login_Steps.WhenIEnterMyCredentialsAndClickOnLoginButton("NonExistentUser", "NonExistentPassword") (0.5s)
+Then I shouldn't be able to login and should see an error message
+-> done: Login_Steps.ThenIShouldnTBeAbleToLoginAndShouldSeeAnErrorMessage() (0.0s)
+
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+        <test-suite type="TestSuite" name="SendNewMessage" fullname="AbvBg.Tests.SendNewMessage" total="1" passed="1" failed="0" inconclusive="0" skipped="0" result="Passed" duration="7.74">
+          <test-suite type="TestFixture" name="SendNewMessageFeature" fullname="AbvBg.Tests.SendNewMessage.SendNewMessageFeature" total="1" passed="1" failed="0" inconclusive="0" skipped="0" result="Passed" duration="7.74">
+            <test-case name="SendNewMessage" fullname="AbvBg.Tests.SendNewMessage.SendNewMessageFeature.SendNewMessage" methodname="SendNewMessage" classname="AbvBg.Tests.SendNewMessage.SendNewMessageFeature" result="Passed" duration="7.74" asserts="0">
+              <properties>
+                <property name="Category" value="positive" />
+              </properties>
+              <output><![CDATA[Given I am logged in and on the mailbox page
+-> done: SendNewMessage_Steps.GivenIAmLoggedInAndOnTheMailboxPage() (6.0s)
+When I click on New Message button
+-> done: SendNewMessage_Steps.WhenIClickOnNewMessageButton() (0.6s)
+And write 'Hi! This is a test message.' in the message box
+-> done: SendNewMessage_Steps.WriteNewMessage("Hi! This is a tes...") (0.3s)
+And fill receiver 'tlevkova@qualityhouse.com', subject 'Test Email' and click on Send button
+-> done: SendNewMessage_Steps.SendMessage("tlevkova@qualityh...", "Test Email") (0.5s)
+Then I should see a confirmation message for successfully sent email
+-> done: SendNewMessage_Steps.ThenIShouldSeeAConfirmationMessageForSuccessfullySentEmail() (0.3s)
+
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+    <errors />
+  </test-suite>
+</test-run>
