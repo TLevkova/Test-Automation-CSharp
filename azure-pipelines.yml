@@ -1,0 +1,32 @@
+# Universal Windows Platform
+# Build a Universal Windows Platform project using Visual Studio.
+# Add steps that test and distribute an app, save build artifacts, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  testPorject: '**/*.csproj'
+  appxPackageDir: '$(build.artifactStagingDirectory)\AppxPackages\\'
+
+steps:
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: test
+    projects: '$(testPorject)'
+- script: dotnet test --logger:"nunit;LogFilePath=Reports/SampleReport.xml"
+- task: PublishTestResults@2
+  inputs:
+    testRunner: NUnit
+    testResultsFiles: 'Reports/SampleReport.xml'
