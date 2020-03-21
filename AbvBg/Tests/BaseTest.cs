@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
+using System.IO;
 using TechTalk.SpecFlow;
 
 namespace AbvBg.Tests
@@ -33,5 +34,34 @@ namespace AbvBg.Tests
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(implicitWaitInSec);
         }
 
+        //Take screen-shot if any test fails
+        public static void TakeScreenshootIfTestStepFails()
+        {
+
+#pragma warning disable CS0618 // Type or member is obsolete
+            if (ScenarioContext.Current.TestError != null)
+#pragma warning restore CS0618 // Type or member is obsolete
+            {
+                var screenshoot = ((ITakesScreenshot)driver).GetScreenshot();
+                string path = Path.GetFullPath(@"..\..\..\Screenshots\");
+                string testName = TestContext.CurrentContext.Test.Name.Replace(' ', '_');
+                string testRuntime = DateTime.Now.ToString("dd-MM-yyyy_THHmmss");
+
+                try
+                {
+                    if (!File.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+
+                    screenshoot.SaveAsFile(path + $"{testName}_{testRuntime}.png", ScreenshotImageFormat.Png);
+                }
+                catch
+                {
+                    throw new DirectoryNotFoundException();
+                }
+            }
+
+        }
     }
 }
