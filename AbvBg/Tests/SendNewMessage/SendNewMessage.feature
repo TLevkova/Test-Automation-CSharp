@@ -1,4 +1,5 @@
-﻿Feature: Send New Message
+﻿@sendNewMessage
+Feature: Send New Message
 	In order to send new message
 	As a logged user
 	I want to go to the Create New Message page

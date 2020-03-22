@@ -84,7 +84,7 @@ namespace AbvBg.Tests.Login
 #line hidden
         }
         
-        [NUnit.Framework.DescriptionAttribute("Login with registered user")]
+        [NUnit.Framework.DescriptionAttribute("This is an example of parametrized test")]
         [NUnit.Framework.CategoryAttribute("positive")]
         [NUnit.Framework.TestCaseAttribute("davidspecflowqhtest1@abv.bg", "specflow1", "Specflow User1", null, TestName="Login with registered user(davidspecflowqhtest1@abv.bg,specflow1,Specflow User1)")]
         [NUnit.Framework.TestCaseAttribute("davidspecflowqhtest2@abv.bg", "specflow2", "Specflow User2", null, TestName="Login with registered user(davidspecflowqhtest2@abv.bg,specflow2,Specflow User2)")]
@@ -97,7 +97,7 @@ namespace AbvBg.Tests.Login
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             string[] tagsOfScenario = @__tags;
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login with registered user", null, @__tags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login with registered user", "This is an example of parametrized test", @__tags);
 #line 11
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -121,10 +121,10 @@ this.ScenarioInitialize(scenarioInfo);
 #line 6
 this.FeatureBackground();
 #line hidden
-#line 12
+#line 13
  testRunner.When(string.Format("I enter my \'{0}\', \'{1}\' and click on the Login button", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 13
+#line 14
  testRunner.Then(string.Format("I should be logged in successfully and see greeting message with my \'{0}\'", name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -140,7 +140,7 @@ this.FeatureBackground();
                     "negative"};
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Try to login with unregistered user", null, new string[] {
                         "negative"});
-#line 22
+#line 23
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -163,11 +163,11 @@ this.ScenarioInitialize(scenarioInfo);
 #line 6
 this.FeatureBackground();
 #line hidden
-#line 23
+#line 24
  testRunner.When("I enter my \'NonExistentUser\', \'NonExistentPassword\' and click on the Login button" +
                         "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 24
+#line 25
  testRunner.Then("I shouldn\'t be able to login and should see an error message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

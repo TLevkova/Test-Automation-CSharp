@@ -9,17 +9,12 @@ namespace AbvBg.Tests.SendNewMessage
         static HomePage homePage;
         static MailboxPage mailboxPage;
 
+        [Scope(Tag = "sendNewMessage")]
         [BeforeFeature]
         public static void BeforeFeature()
         {
             homePage = new HomePage(driver);
             mailboxPage = null;
-        }
-
-        [AfterScenario]
-        public static void AfterScenarioBlock()
-        {
-            driver.Manage().Cookies.DeleteAllCookies();
         }
 
         [Given(@"I am logged in and on the mailbox page")]
@@ -41,7 +36,7 @@ namespace AbvBg.Tests.SendNewMessage
         }
 
         [When(@"send the message with the following message data:")]
-        public void WhenSendTheMessageWithFilled(Table messageData)
+        public void WhenSendTheMessageWithTheFollowingMessageData(Table messageData)
         {
             mailboxPage.SendMessage(messageData);
         }

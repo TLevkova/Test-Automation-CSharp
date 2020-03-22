@@ -9,17 +9,12 @@ namespace AbvBg.Tests.Login
         static HomePage homePage;
         static MailboxPage mailboxPage;
 
+        [Scope(Tag = "login")]
         [BeforeFeature]
         public static void BeforeFeature()
         {
             homePage = new HomePage(driver);
             mailboxPage = null;
-        }
-
-        [AfterScenario]
-        public static void AfterScenarioBlock()
-        {
-            driver.Manage().Cookies.DeleteAllCookies();
         }
 
         [Given(@"I am on the Home page")]
