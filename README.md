@@ -1,2 +1,2 @@
 # Test-Automation-CSharp
-This repository contains a simple test framework created using C#, NUnit and SpecFlow. Some of the popular test design patterns such as POM and Factory pattern are implemented. Test run data configuration is applied (in json format) considering that the scripts would be run in Zalenium.
+This repository contains a simple test framework for UI testing created using C#, Selenium, NUnit and SpecFlow. Some of the popular test design patterns such as POM and Factory pattern are implemented. Test run data configuration is applied (in json format) considering that the scripts would be run in Zalenium.
