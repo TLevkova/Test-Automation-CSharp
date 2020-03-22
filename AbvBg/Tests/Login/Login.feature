@@ -1,7 +1,7 @@
 ﻿Feature: Login
 	In order to access my e-mail box
 	As a registered user
-	I want to login into abv.bg
+	I should be able to login into abv.bg
 
 Background:
 	Given I am on the Home page

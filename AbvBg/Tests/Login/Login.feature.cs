@@ -20,8 +20,8 @@ namespace AbvBg.Tests.Login
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute(TestName="Login")]
-    [NUnit.Framework.DescriptionAttribute("\tIn order to access my e-mail box\r\n\tAs a registered user\r\n\tI want to login into a" +
-        "bv.bg")]
+    [NUnit.Framework.DescriptionAttribute("\tIn order to access my e-mail box\r\n\tAs a registered user\r\n\tI should be able to lo" +
+        "gin into abv.bg")]
     public partial class LoginFeature
     {
         
@@ -36,8 +36,8 @@ namespace AbvBg.Tests.Login
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Login", "\tIn order to access my e-mail box\r\n\tAs a registered user\r\n\tI want to login into a" +
-                    "bv.bg", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Login", "\tIn order to access my e-mail box\r\n\tAs a registered user\r\n\tI should be able to lo" +
+                    "gin into abv.bg", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         

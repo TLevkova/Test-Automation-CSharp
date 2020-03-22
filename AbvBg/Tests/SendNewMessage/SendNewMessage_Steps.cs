@@ -1,4 +1,5 @@
 ﻿using AbvBg.Objects;
+using System.Linq;
 using TechTalk.SpecFlow;
 
 namespace AbvBg.Tests.SendNewMessage
@@ -34,17 +35,18 @@ namespace AbvBg.Tests.SendNewMessage
             mailboxPage.ClickOnNewMessageButton();
         }
 
-        [When(@"write '(.*)' in the message box")]
-        public void WriteNewMessage(string newMessage)
+        [When(@"write in the message box the following message")]
+        public void WhenWriteInTheMessageBoxTheFollowingMessage(string multilineMessage)
         {
-            mailboxPage.WriteNewMessage(newMessage);
+            mailboxPage.WriteNewMessage(multilineMessage);
         }
 
-        [When(@"fill receiver '(.*)', subject '(.*)' and click on Send button")]
-        public void SendMessage(string receiver, string subject)
+        [When(@"send the message with the following message info:")]
+        public void WhenSendTheMessageWithFilled(Table messageInfo)
         {
-            mailboxPage.SendMessage(receiver, subject);
+            mailboxPage.SendMessageFromTable(messageInfo);
         }
+
 
         [Then(@"I should see a confirmation message for successfully sent email")]
         public void ThenIShouldSeeAConfirmationMessageForSuccessfullySentEmail()

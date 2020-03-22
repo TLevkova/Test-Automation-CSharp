@@ -21,7 +21,7 @@ namespace AbvBg.Tests.SendNewMessage
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute(TestName="Send New Message")]
     [NUnit.Framework.DescriptionAttribute("\tIn order to send new message\r\n\tAs a logged user\r\n\tI want to go to the Create New" +
-        " Message page\r\n\tAnd create new message")]
+        " Message page\r\n\tAnd to be able to create new message")]
     public partial class SendNewMessageFeature
     {
         
@@ -37,7 +37,7 @@ namespace AbvBg.Tests.SendNewMessage
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Send New Message", "\tIn order to send new message\r\n\tAs a logged user\r\n\tI want to go to the Create New" +
-                    " Message page\r\n\tAnd create new message", ProgrammingLanguage.CSharp, ((string[])(null)));
+                    " Message page\r\n\tAnd to be able to create new message", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -120,13 +120,18 @@ this.FeatureBackground();
  testRunner.When("I click on New Message button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 13
- testRunner.And("write \'Hi! This is a test message.\' in the message box", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("write in the message box the following message", "Hi! This is a multiple lines test message.\r\n\r\nBest regards,\r\nSpecFlow Test User", ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 14
- testRunner.And("fill receiver \'tlevkova@qualityhouse.com\', subject \'Test Email\' and click on Send" +
-                        " button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Receiver",
+                            "Subject"});
+                table1.AddRow(new string[] {
+                            "tlevkova@qualityhouse.com",
+                            "Test Email"});
+#line 20
+ testRunner.And("send the message with filled:", ((string)(null)), table1, "And ");
 #line hidden
-#line 15
+#line 23
  testRunner.Then("I should see a confirmation message for successfully sent email", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

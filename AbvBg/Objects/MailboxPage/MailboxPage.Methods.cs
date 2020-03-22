@@ -1,4 +1,7 @@
-﻿namespace AbvBg.Objects
+﻿using System.Linq;
+using TechTalk.SpecFlow;
+
+namespace AbvBg.Objects
 {
     partial class MailboxPage
     {
@@ -12,8 +15,11 @@
             TextArea.SendKeys(newMessage);
         }
 
-        public void SendMessage(string receiver, string subject)
+        public void SendMessageFromTable(Table messageInfo)
         {
+            string receiver = messageInfo.Rows[0]["Receiver"];
+            string subject = messageInfo.Rows[0]["Subject"];
+
             TypeInto(ReceiverField, receiver);
             TypeInto(SubjectField, subject);
             SendMessageButton.Click();
