@@ -9,9 +9,9 @@ Background:
 #------------------------------------------------
 @positive
 Scenario Outline: Login with registered user
+This is an example of parametrized test
 	When I enter my '<username>', '<password>' and click on the Login button
 	Then I should be logged in successfully and see greeting message with my '<name>'
-
 	Examples:
 		| username                    | password  | name           |
 		| davidspecflowqhtest1@abv.bg | specflow1 | Specflow User1 |

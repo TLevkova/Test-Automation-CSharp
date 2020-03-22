@@ -1,5 +1,4 @@
 ﻿using AbvBg.Objects;
-using System.Linq;
 using TechTalk.SpecFlow;
 
 namespace AbvBg.Tests.SendNewMessage
@@ -29,22 +28,22 @@ namespace AbvBg.Tests.SendNewMessage
             mailboxPage = homePage.NavigateAndLogin();
         }
 
-        [When(@"I click on New Message button")]
-        public void WhenIClickOnNewMessageButton()
+        [When(@"I click on the '(?:.*)' button")]
+        public void WhenIClickOnTheButton()
         {
             mailboxPage.ClickOnNewMessageButton();
         }
 
-        [When(@"write in the message box the following message")]
+        [When(@"write in the message box the following message:")]
         public void WhenWriteInTheMessageBoxTheFollowingMessage(string multilineMessage)
         {
             mailboxPage.WriteNewMessage(multilineMessage);
         }
 
-        [When(@"send the message with the following message info:")]
-        public void WhenSendTheMessageWithFilled(Table messageInfo)
+        [When(@"send the message with the following message data:")]
+        public void WhenSendTheMessageWithFilled(Table messageData)
         {
-            mailboxPage.SendMessageFromTable(messageInfo);
+            mailboxPage.SendMessage(messageData);
         }
 
 

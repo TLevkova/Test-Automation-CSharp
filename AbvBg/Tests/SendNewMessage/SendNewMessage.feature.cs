@@ -117,10 +117,11 @@ this.ScenarioInitialize(scenarioInfo);
 this.FeatureBackground();
 #line hidden
 #line 12
- testRunner.When("I click on New Message button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I click on the \'New Message\' button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 13
- testRunner.And("write in the message box the following message", "Hi! This is a multiple lines test message.\r\n\r\nBest regards,\r\nSpecFlow Test User", ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("write in the message box the following message:", "Dear user,\r\n\r\nThis is a multiple lines test message.\r\n\r\nBest regards,\r\nSpecFlow T" +
+                        "est User", ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                             "Receiver",
@@ -128,10 +129,72 @@ this.FeatureBackground();
                 table1.AddRow(new string[] {
                             "tlevkova@qualityhouse.com",
                             "Test Email"});
-#line 20
- testRunner.And("send the message with filled:", ((string)(null)), table1, "And ");
+#line 22
+ testRunner.And("send the message with the following message data:", ((string)(null)), table1, "And ");
 #line hidden
-#line 23
+#line 25
+ testRunner.Then("I should see a confirmation message for successfully sent email", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.DescriptionAttribute("Send new personalized message")]
+        [NUnit.Framework.CategoryAttribute("positive")]
+        [NUnit.Framework.CategoryAttribute("test")]
+        [NUnit.Framework.TestCaseAttribute("tlevkova@qualityhouse.com", "Test Email", "Teodora Levkova", null, TestName="Send new personalized message(tlevkova@qualityhouse.com,Test Email,Teodora Levkov" +
+            "a)")]
+        public virtual void SendNewPersonalizedMessage(string receiver, string subject, string receiverName, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "positive",
+                    "test"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Send new personalized message", null, @__tags);
+#line 28
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 7
+this.FeatureBackground();
+#line hidden
+#line 29
+ testRunner.When("I click on the \'New Message\' button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 30
+ testRunner.And("write in the message box the following message:", string.Format("Dear {0},\r\n\r\nThis is a multiple lines test message.\r\n\r\nBest regards,\r\nSpecFlow Te" +
+                            "st User", receiverName), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Receiver",
+                            "Subject"});
+                table2.AddRow(new string[] {
+                            string.Format("{0}", receiver),
+                            string.Format("{0}", subject)});
+#line 39
+ testRunner.And("send the message with the following message data:", ((string)(null)), table2, "And ");
+#line hidden
+#line 42
  testRunner.Then("I should see a confirmation message for successfully sent email", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

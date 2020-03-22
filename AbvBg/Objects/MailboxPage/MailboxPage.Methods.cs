@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using TechTalk.SpecFlow;
+﻿using TechTalk.SpecFlow;
 
 namespace AbvBg.Objects
 {
@@ -15,10 +14,10 @@ namespace AbvBg.Objects
             TextArea.SendKeys(newMessage);
         }
 
-        public void SendMessageFromTable(Table messageInfo)
+        public void SendMessage(Table messageData)
         {
-            string receiver = messageInfo.Rows[0]["Receiver"];
-            string subject = messageInfo.Rows[0]["Subject"];
+            string receiver = messageData.Rows[0]["Receiver"];
+            string subject = messageData.Rows[0]["Subject"];
 
             TypeInto(ReceiverField, receiver);
             TypeInto(SubjectField, subject);
